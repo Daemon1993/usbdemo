@@ -90,6 +90,9 @@ public class USBHandler extends LogImpl {
     }
 
     private void sendDatas(byte[] bytes) {
+        if(pipe_send==null){
+            return;
+        }
         getLogger().error(DataUtils.ByteArrToHex(bytes));
         try {
             pipe_send.asyncSubmit(bytes);
