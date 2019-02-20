@@ -1,16 +1,12 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <configuration>
-
+    <!-- 默认的控制台日志输出，一般生产环境都是后台启动，这个没太大作用 -->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-        <!-- encoders are assigned the type ch.qos.logback.classic.encoder.PatternLayoutEncoder
-            by default -->
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
-            </pattern>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{HH:mm:ss.SSS} %-5level %logger{80} - %msg%n</Pattern>
         </encoder>
     </appender>
 
-    <root level="debug">
-        <appender-ref ref="STDOUT" />
+    <root level="info">
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
